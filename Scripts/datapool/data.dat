@@ -1,0 +1,2 @@
+login,password,firstName,lastName,creditCard,creditCard_expDate,protocol,host,port
+jojo,bean,Jojo,Bean,12345678,02/24,http,127.0.0.1,1080
