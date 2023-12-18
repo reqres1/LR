@@ -1,0 +1,67 @@
+[General]
+Type=Multi
+DefaultCfg=default.cfg
+ParameterFile=UC05_SearchTicket.prm
+GlobalParameterFile=
+NewFunctionHeader=1
+RunType=cci
+ActionLogicExt=action_logic
+LastActiveAction=Action
+MajorVersion=12
+MinorVersion=55
+ActiveTypes=QTWeb
+GenerateTypes=QTWeb
+AdditionalTypes=QTWeb
+DevelopTool=Vugen
+LastModifyVer=12.55.0.911
+ParamLeftBrace={
+ParamRightBrace=}
+ScriptLanguage=C
+LastCodeGenerationVer=12.55.0.911
+DisableRegenerate=0
+Encoding=ANSI
+Description=
+ScriptLocale=ru-RU
+[Actions]
+vuser_init=vuser_init.c
+SearchTicket=SearchTicket.c
+vuser_end=vuser_end.c
+[RunLogicFiles]
+Default Profile=default.usp
+[VuserProfiles]
+Profiles=Default Profile
+[CfgFiles]
+Default Profile=default.cfg
+[ExtraFiles]
+globals.h=
+[Modified Actions]
+vuser_init=1
+SearchTicket=1
+vuser_end=0
+[Recorded Actions]
+vuser_init=0
+SearchTicket=1
+vuser_end=0
+[Replayed Actions]
+vuser_init=1
+SearchTicket=1
+vuser_end=1
+[Interpreters]
+vuser_init=cci
+SearchTicket=cci
+vuser_end=cci
+[TransactionsOrder]
+Order="MAIN_UC05_SearchTicket__*delimiter*__UC05_SearchTicket_01MainWelcomePage__*delimiter*__UC05_SearchTicket_02LogIn__*delimiter*__UC05_SearchTicket_03ClickFlights__*delimiter*__UC05_SearchTicket_04FillingFields__*delimiter*__UC05_SearchTicket_05FlightSelection__*delimiter*__UC05_SearchTicket_06SignOff"
+[StateManagement]
+LastReplayStatus=1
+[ActiveReplay]
+LastReplayedRunName=result1
+ActiveRunName=result1
+[Transactions]
+MAIN_UC05_SearchTicket=
+UC05_SearchTicket_01MainWelcomePage=
+UC05_SearchTicket_02LogIn=
+UC05_SearchTicket_03ClickFlights=
+UC05_SearchTicket_04FillingFields=
+UC05_SearchTicket_05FlightSelection=
+UC05_SearchTicket_06SignOff=
