@@ -7,9 +7,9 @@ DeleteABooking()
 	char cgifields[4096];
 	char tempBuffer[256];
 	
-	lr_start_transaction("MAIN_UC02_DeleteABooking");
+	lr_start_transaction("UC02_DeleteABooking");
 	
-	lr_start_transaction("UC02_DeleteABooking_01MainWelcomePage");
+	lr_start_transaction("MainWelcomePage");
 	
 	web_add_auto_header("Sec-Fetch-Dest", 
 		"document");
@@ -45,11 +45,11 @@ DeleteABooking()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC02_DeleteABooking_01MainWelcomePage",LR_AUTO);
+	lr_end_transaction("MainWelcomePage",LR_AUTO);
 	
 	lr_think_time(2);
 
-	lr_start_transaction("UC02_DeleteABooking_02LogIn");
+	lr_start_transaction("LogIn");
 	
 	web_revert_auto_header("Sec-Fetch-Dest");
 
@@ -92,11 +92,11 @@ DeleteABooking()
 		"Name=JSFormSubmit", "Value=off", ENDITEM, 
 		LAST);
 
-	lr_end_transaction("UC02_DeleteABooking_02LogIn",LR_AUTO);
+	lr_end_transaction("LogIn",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC02_DeleteABooking_03ClickItinerary");
+	lr_start_transaction("ClickItinerary");
 
 	web_add_header("Sec-Fetch-Dest", 
 		"frame");
@@ -141,11 +141,11 @@ DeleteABooking()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC02_DeleteABooking_03ClickItinerary",LR_AUTO);
+	lr_end_transaction("ClickItinerary",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC02_DeleteABooking_04CanselReservation");
+	lr_start_transaction("CanselReservation");
 
 	web_add_header("Origin", 
 		"{protocol}://{host}:{port}");
@@ -203,11 +203,11 @@ DeleteABooking()
     	"Body=1=on{requestBody}&removeFlights.x=64&removeFlights.y=9&{cgifields}",
     	LAST);
 
-	lr_end_transaction("UC02_DeleteABooking_04CanselReservation",LR_AUTO);
+	lr_end_transaction("CanselReservation",LR_AUTO);
 	
 	lr_think_time(2);
 
-	lr_start_transaction("UC02_DeleteABooking_05SignOff");
+	lr_start_transaction("SignOff");
 
 	web_revert_auto_header("Sec-Fetch-User");
 
@@ -223,9 +223,9 @@ DeleteABooking()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC02_DeleteABooking_05SignOff",LR_AUTO);
+	lr_end_transaction("SignOff",LR_AUTO);
 
-	lr_end_transaction("MAIN_UC02_DeleteABooking",LR_AUTO);
+	lr_end_transaction("UC02_DeleteABooking",LR_AUTO);
 	
 	return 0;
 }

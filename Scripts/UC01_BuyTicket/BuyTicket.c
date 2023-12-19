@@ -1,8 +1,8 @@
 BuyTicket()
 {
-	lr_start_transaction("MAIN_UC01_BuyTicket");
+	lr_start_transaction("UC01_BuyTicket");
 
-	lr_start_transaction("UC01_BuyTicket_01MainWelcomePage");
+	lr_start_transaction("MainWelcomePage");
 
 	web_add_header("Sec-Fetch-Dest", 
 		"frame");
@@ -35,11 +35,11 @@ BuyTicket()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_end_transaction("UC01_BuyTicket_01MainWelcomePage",LR_AUTO);
+	lr_end_transaction("MainWelcomePage",LR_AUTO);
 	
 	lr_think_time(2);
 
-	lr_start_transaction("UC01_BuyTicket_02LogIn");
+	lr_start_transaction("LogIn");
 
 	web_add_header("Origin", 
 		"{protocol}://{host}:{port}");
@@ -78,11 +78,11 @@ BuyTicket()
 		"Name=JSFormSubmit", "Value=off", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC01_BuyTicket_02LogIn",LR_AUTO);
+	lr_end_transaction("LogIn",LR_AUTO);
 	
 	lr_think_time(2);
 
-	lr_start_transaction("UC01_BuyTicket_03ClickFlights");
+	lr_start_transaction("ClickFlights");
 
 	web_add_header("Sec-Fetch-Dest", 
 		"frame");
@@ -131,11 +131,11 @@ BuyTicket()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC01_BuyTicket_03ClickFlights",LR_AUTO);
+	lr_end_transaction("ClickFlights",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC01_BuyTicket_04FillingFields");
+	lr_start_transaction("FillingFields");
 
 	web_add_auto_header("Origin", 
 		"{protocol}://{host}:{port}");
@@ -181,11 +181,11 @@ BuyTicket()
 		"Name=.cgifields", "Value=seatPref", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC01_BuyTicket_04FillingFields",LR_AUTO);
+	lr_end_transaction("FillingFields",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC01_BuyTicket_05FlightSelection");
+	lr_start_transaction("FlightSelection");
 
 	web_reg_find("Text=Flight Reservation", LAST);
 	
@@ -207,7 +207,7 @@ BuyTicket()
 		"Name=reserveFlights.y", "Value=11", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC01_BuyTicket_05FlightSelection",LR_AUTO);
+	lr_end_transaction("FlightSelection",LR_AUTO);
 
 	web_revert_auto_header("Origin");
 
@@ -223,7 +223,7 @@ BuyTicket()
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC01_BuyTicket_06PaymentTicket");
+	lr_start_transaction("PaymentTicket");
 
 	web_add_header("Origin", 
 		"{protocol}://{host}:{port}");
@@ -274,7 +274,7 @@ BuyTicket()
 		"Name=.cgifields", "Value=saveCC", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC01_BuyTicket_06PaymentTicket",LR_AUTO);
+	lr_end_transaction("PaymentTicket",LR_AUTO);
 	
 	lr_think_time(2);
 
@@ -294,7 +294,7 @@ BuyTicket()
 
 	lr_end_transaction("UC01_BuyTicket_07SignOff",LR_AUTO);*/
 	
-	lr_end_transaction("MAIN_UC01_BuyTicket",LR_AUTO);
+	lr_end_transaction("UC01_BuyTicket",LR_AUTO);
 
 	return 0;
 }

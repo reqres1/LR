@@ -1,8 +1,8 @@
 LogIn()
 {
-	lr_start_transaction("MAIN_UC04_LogIn");
+	lr_start_transaction("UC04_LogIn");
 
-	lr_start_transaction("UC04_LogIn_01MainWelcomePage");
+	lr_start_transaction("MainWelcomePage");
 
 	web_add_header("Sec-Fetch-Dest", 
 		"frame");
@@ -35,7 +35,7 @@ LogIn()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_end_transaction("UC04_LogIn_01MainWelcomePage",LR_AUTO);
+	lr_end_transaction("MainWelcomePage",LR_AUTO);
 	
 	lr_think_time(2);
 
@@ -78,11 +78,11 @@ LogIn()
 		"Name=JSFormSubmit", "Value=off", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC04_LogIn_02LogIn",LR_AUTO);
+	lr_end_transaction("LogIn",LR_AUTO);
 	
 	lr_think_time(2);
 
-	lr_start_transaction("UC04_LogIn_03ClickFlights");
+	lr_start_transaction("ClickFlights");
 
 	web_add_header("Sec-Fetch-Dest", 
 		"frame");
@@ -131,11 +131,11 @@ LogIn()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC04_LogIn_03ClickFlights",LR_AUTO);
+	lr_end_transaction("ClickFlights",LR_AUTO);
 	
 	lr_think_time(2);
 	
-	lr_start_transaction("UC04_LogIn_04FillingFields");
+	lr_start_transaction("FillingFields");
 
 	web_add_auto_header("Origin", 
 		"{protocol}://{host}:{port}");
@@ -181,11 +181,11 @@ LogIn()
 		"Name=.cgifields", "Value=seatPref", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC04_LogIn_04FillingFields",LR_AUTO);
+	lr_end_transaction("FillingFields",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC04_LogIn_05SignOff");
+	lr_start_transaction("SignOff");
 
 	web_revert_auto_header("Sec-Fetch-User");
 
@@ -201,9 +201,9 @@ LogIn()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC04_LogIn_05SignOff",LR_AUTO);
+	lr_end_transaction("SignOff",LR_AUTO);
 	
-	lr_end_transaction("MAIN_UC04_LogIn",LR_AUTO);
+	lr_end_transaction("UC04_LogIn",LR_AUTO);
 
 	return 0;
 }

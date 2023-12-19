@@ -7,9 +7,9 @@ SignUp()
     char result[12];
     char generatedusername[12];
 		
-    lr_start_transaction("MAIN_UC03_SignUp");
+    lr_start_transaction("UC03_SignUp");
     
-	lr_start_transaction("UC03_SignUp_01MainWelcomePage");
+	lr_start_transaction("MainWelcomePage");
 
 	web_add_header("Sec-Fetch-Dest", 
 		"document");
@@ -45,11 +45,11 @@ SignUp()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC03_SignUp_01MainWelcomePage",LR_AUTO);
+	lr_end_transaction("MainWelcomePage",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC03_SignUp_02ClickSignUp");
+	lr_start_transaction("ClickSignUp");
 
 	web_add_header("Sec-Fetch-Dest", 
 		"frame");
@@ -78,11 +78,11 @@ SignUp()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC03_SignUp_02ClickSignUp",LR_AUTO);
+	lr_end_transaction("ClickSignUp",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC03_SignUp_03FillingFields");
+	lr_start_transaction("FillingFieldsInSignUp");
 
 	web_add_header("Origin", 
 		"{protocol}://{host}:{port}");
@@ -135,11 +135,11 @@ SignUp()
 		"Name=register.y", "Value=11", ENDITEM, 
 		LAST);
 
-	lr_end_transaction("UC03_SignUp_03FillingFields",LR_AUTO);
+	lr_end_transaction("FillingFieldsInSignUp",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC03_SignUp_04ClickContinue");
+	lr_start_transaction("ClickContinueInSignUp");
 
 	web_add_auto_header("Sec-Fetch-Dest", 
 		"frame");
@@ -168,9 +168,9 @@ SignUp()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC03_SignUp_04ClickContinue",LR_AUTO);
+	lr_end_transaction("ClickContinueInSignUp",LR_AUTO);
 
-	lr_start_transaction("UC03_SignUp_05SignOff");
+	lr_start_transaction("SignOff");
 
 	web_revert_auto_header("Sec-Fetch-User");
 
@@ -186,9 +186,9 @@ SignUp()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC03_SignUp_05SignOff",LR_AUTO);
+	lr_end_transaction("SignOff",LR_AUTO);
 	
-	lr_end_transaction("MAIN_UC03_SignUp",LR_AUTO);
+	lr_end_transaction("UC03_SignUp",LR_AUTO);
 
 	return 0;
 }

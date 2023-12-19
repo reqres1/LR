@@ -1,8 +1,8 @@
 SearchTicket()
 {
-	lr_start_transaction("MAIN_UC05_SearchTicket");
+	lr_start_transaction("UC05_SearchTicket");
 
-	lr_start_transaction("UC05_SearchTicket_01MainWelcomePage");
+	lr_start_transaction("MainWelcomePage");
 
 	web_add_header("Sec-Fetch-Dest", 
 		"frame");
@@ -35,11 +35,11 @@ SearchTicket()
 		"Mode=HTML", 
 		LAST);
 	
-	lr_end_transaction("UC05_SearchTicket_01MainWelcomePage",LR_AUTO);
+	lr_end_transaction("MainWelcomePage",LR_AUTO);
 	
 	lr_think_time(2);
 
-	lr_start_transaction("UC05_SearchTicket_02LogIn");
+	lr_start_transaction("LogIn");
 
 	web_add_header("Origin", 
 		"{protocol}://{host}:{port}");
@@ -78,11 +78,11 @@ SearchTicket()
 		"Name=JSFormSubmit", "Value=off", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC05_SearchTicket_02LogIn",LR_AUTO);
+	lr_end_transaction("LogIn",LR_AUTO);
 	
 	lr_think_time(2);
 
-	lr_start_transaction("UC05_SearchTicket_03ClickFlights");
+	lr_start_transaction("ClickFlights");
 
 	web_add_header("Sec-Fetch-Dest", 
 		"frame");
@@ -131,11 +131,11 @@ SearchTicket()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC05_SearchTicket_03ClickFlights",LR_AUTO);
+	lr_end_transaction("ClickFlights",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC05_SearchTicket_04FillingFields");
+	lr_start_transaction("FillingFields");
 
 	web_add_auto_header("Origin", 
 		"{protocol}://{host}:{port}");
@@ -181,11 +181,11 @@ SearchTicket()
 		"Name=.cgifields", "Value=seatPref", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC05_SearchTicket_04FillingFields",LR_AUTO);
+	lr_end_transaction("FillingFields",LR_AUTO);
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC05_SearchTicket_05FlightSelection");
+	lr_start_transaction("FlightSelection");
 
 	web_reg_find("Text=Flight Reservation", LAST);
 	
@@ -207,7 +207,7 @@ SearchTicket()
 		"Name=reserveFlights.y", "Value=11", ENDITEM, 
 		LAST);
 	
-	lr_end_transaction("UC05_SearchTicket_05FlightSelection",LR_AUTO);
+	lr_end_transaction("FlightSelection",LR_AUTO);
 
 	web_revert_auto_header("Origin");
 
@@ -223,7 +223,7 @@ SearchTicket()
 
 	lr_think_time(2);
 
-	lr_start_transaction("UC05_SearchTicket_06SignOff");
+	lr_start_transaction("SignOff");
 
 	web_revert_auto_header("Sec-Fetch-User");
 
@@ -239,9 +239,9 @@ SearchTicket()
 		"Mode=HTML", 
 		LAST);
 
-	lr_end_transaction("UC05_SearchTicket_06SignOff",LR_AUTO);
+	lr_end_transaction("SignOff",LR_AUTO);
 	
-	lr_end_transaction("MAIN_UC05_SearchTicket",LR_AUTO);
+	lr_end_transaction("UC05_SearchTicket",LR_AUTO);
 
 	return 0;
 }
