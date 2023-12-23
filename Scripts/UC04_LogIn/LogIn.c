@@ -37,9 +37,9 @@ LogIn()
 	
 	lr_end_transaction("MainWelcomePage",LR_AUTO);
 	
-	lr_think_time(2);
+	lr_think_time(5);
 
-	lr_start_transaction("UC04_LogIn_02LogIn");
+	lr_start_transaction("LogIn");
 
 	web_add_header("Origin", 
 		"{protocol}://{host}:{port}");
@@ -80,7 +80,7 @@ LogIn()
 	
 	lr_end_transaction("LogIn",LR_AUTO);
 	
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("ClickFlights");
 
@@ -133,7 +133,7 @@ LogIn()
 
 	lr_end_transaction("ClickFlights",LR_AUTO);
 	
-	lr_think_time(2);
+	lr_think_time(5);
 	
 	lr_start_transaction("FillingFields");
 
@@ -183,7 +183,7 @@ LogIn()
 	
 	lr_end_transaction("FillingFields",LR_AUTO);
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("SignOff");
 

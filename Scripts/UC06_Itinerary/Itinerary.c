@@ -1,13 +1,7 @@
-DeleteABooking()
+Itinerary()
 {
-	int i;
-	int flightIDCount;
-	int cgiFieldsCount;
-	char requestBody[4096];
-	char cgifields[4096];
-	char tempBuffer[256];
 	
-	lr_start_transaction("UC02_DeleteABooking");
+	lr_start_transaction("UC06_Itinerary");
 	
 	lr_start_transaction("MainWelcomePage");
 	
@@ -145,68 +139,6 @@ DeleteABooking()
 
 	lr_think_time(5);
 
-	lr_start_transaction("CanselReservation");
-
-	web_add_header("Origin", 
-		"{protocol}://{host}:{port}");
-
-	web_add_auto_header("Sec-Fetch-Dest", 
-		"frame");
-
-	web_add_auto_header("Sec-Fetch-Mode", 
-		"navigate");
-
-	web_add_auto_header("Sec-Fetch-Site", 
-		"same-origin");
-
-	web_add_auto_header("Sec-Fetch-User", 
-		"?1");
-
-	web_add_auto_header("Upgrade-Insecure-Requests", 
-		"1");
-
-	web_reg_find("Text=A total of",LAST);
-	
-	flightIDCount = atoi(lr_eval_string("{FlightIDParam_count}"));
-	cgiFieldsCount = atoi(lr_eval_string("{CgiFieldsParam_count}"));
-	
-	strcpy(requestBody, "");
-
-	for (i = 1; i <= flightIDCount; i++) {
-    char flightIDValue[256];
-    snprintf(flightIDValue, sizeof(flightIDValue), "%s", lr_eval_string(lr_paramarr_idx("FlightIDParam", i)));
-    sprintf(tempBuffer, "&flightID=%s", flightIDValue);
-    strcat(requestBody, tempBuffer);
-	}
-	
-	lr_save_string(requestBody, "requestBody");
-	
-	strcpy(cgifields, "");
-
-    for (i = 1; i <= cgiFieldsCount; i++) {
-    char cgiFieldValue[256];
-    snprintf(cgiFieldValue, sizeof(cgiFieldValue), "%s", lr_eval_string(lr_paramarr_idx("CgiFieldsParam", i)));
-    sprintf(tempBuffer, "&.cgifields=%s", cgiFieldValue);
-    strcat(cgifields, tempBuffer);
-	}
-	
-	lr_save_string(cgifields, "cgifields");
-	
-    web_custom_request("itinerary.pl",
-    	"Method=POST",
-    	"URL={protocol}://{host}:{port}/cgi-bin/itinerary.pl",
-    	"Resource=0",
-    	"EncType=application/x-www-form-urlencoded",
-    	"Referer={protocol}://{host}:{port}/cgi-bin/itinerary.pl",
-    	"Snapshot=t6.inf",
-    	"Mode={protocol}",
-    	"Body=1=on{requestBody}&removeFlights.x=64&removeFlights.y=9&{cgifields}",
-    	LAST);
-
-	lr_end_transaction("CanselReservation",LR_AUTO);
-	
-	lr_think_time(5);
-
 	lr_start_transaction("SignOff");
 
 	web_revert_auto_header("Sec-Fetch-User");
@@ -225,7 +157,7 @@ DeleteABooking()
 
 	lr_end_transaction("SignOff",LR_AUTO);
 
-	lr_end_transaction("UC02_DeleteABooking",LR_AUTO);
+	lr_end_transaction("UC06_Itinerary",LR_AUTO);
 	
 	return 0;
 }

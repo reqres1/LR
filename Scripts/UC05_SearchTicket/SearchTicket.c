@@ -37,7 +37,7 @@ SearchTicket()
 	
 	lr_end_transaction("MainWelcomePage",LR_AUTO);
 	
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("LogIn");
 
@@ -80,7 +80,7 @@ SearchTicket()
 	
 	lr_end_transaction("LogIn",LR_AUTO);
 	
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("ClickFlights");
 
@@ -133,7 +133,7 @@ SearchTicket()
 
 	lr_end_transaction("ClickFlights",LR_AUTO);
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("FillingFields");
 
@@ -183,7 +183,7 @@ SearchTicket()
 	
 	lr_end_transaction("FillingFields",LR_AUTO);
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("FlightSelection");
 
@@ -221,7 +221,7 @@ SearchTicket()
 
 	web_revert_auto_header("Upgrade-Insecure-Requests");
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("SignOff");
 

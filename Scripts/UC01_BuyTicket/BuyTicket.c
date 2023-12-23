@@ -37,7 +37,7 @@ BuyTicket()
 	
 	lr_end_transaction("MainWelcomePage",LR_AUTO);
 	
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("LogIn");
 
@@ -80,7 +80,7 @@ BuyTicket()
 	
 	lr_end_transaction("LogIn",LR_AUTO);
 	
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("ClickFlights");
 
@@ -133,7 +133,7 @@ BuyTicket()
 
 	lr_end_transaction("ClickFlights",LR_AUTO);
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("FillingFields");
 
@@ -183,7 +183,7 @@ BuyTicket()
 	
 	lr_end_transaction("FillingFields",LR_AUTO);
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("FlightSelection");
 
@@ -221,7 +221,7 @@ BuyTicket()
 
 	web_revert_auto_header("Upgrade-Insecure-Requests");
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("PaymentTicket");
 
@@ -275,8 +275,6 @@ BuyTicket()
 		LAST);
 	
 	lr_end_transaction("PaymentTicket",LR_AUTO);
-	
-	lr_think_time(2);
 
 	/*lr_start_transaction("UC01_BuyTicket_07SignOff");
 
