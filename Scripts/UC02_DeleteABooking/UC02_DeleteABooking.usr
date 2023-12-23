@@ -55,8 +55,8 @@ Order="UC02_DeleteABooking__*delimiter*__MainWelcomePage__*delimiter*__LogIn__*d
 [StateManagement]
 LastReplayStatus=1
 [ActiveReplay]
-LastReplayedRunName=
-ActiveRunName=
+LastReplayedRunName=result1
+ActiveRunName=result1
 [Transactions]
 UC02_DeleteABooking=
 MainWelcomePage=

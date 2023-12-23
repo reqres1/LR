@@ -47,7 +47,7 @@ SignUp()
 
 	lr_end_transaction("MainWelcomePage",LR_AUTO);
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("ClickSignUp");
 
@@ -80,7 +80,7 @@ SignUp()
 
 	lr_end_transaction("ClickSignUp",LR_AUTO);
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("FillingFieldsInSignUp");
 
@@ -137,7 +137,7 @@ SignUp()
 
 	lr_end_transaction("FillingFieldsInSignUp",LR_AUTO);
 
-	lr_think_time(2);
+	lr_think_time(5);
 
 	lr_start_transaction("ClickContinueInSignUp");
 
@@ -169,6 +169,8 @@ SignUp()
 		LAST);
 
 	lr_end_transaction("ClickContinueInSignUp",LR_AUTO);
+	
+	lr_think_time(5);
 
 	lr_start_transaction("SignOff");
 

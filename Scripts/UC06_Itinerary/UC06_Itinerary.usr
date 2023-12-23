@@ -1,7 +1,7 @@
 [General]
 Type=Multi
 DefaultCfg=default.cfg
-ParameterFile=UC03_SignUp.prm
+ParameterFile=UC06_Itinerary.prm
 GlobalParameterFile=
 NewFunctionHeader=1
 RunType=cci
@@ -24,7 +24,7 @@ Description=
 ScriptLocale=ru-RU
 [Actions]
 vuser_init=vuser_init.c
-SignUp=SignUp.c
+Itinerary=Itinerary.c
 vuser_end=vuser_end.c
 [RunLogicFiles]
 Default Profile=default.usp
@@ -35,32 +35,33 @@ Default Profile=default.cfg
 [ExtraFiles]
 globals.h=
 [Modified Actions]
-vuser_init=0
-SignUp=1
+vuser_init=1
+Itinerary=1
 vuser_end=0
 [Recorded Actions]
 vuser_init=0
-SignUp=1
+Itinerary=1
 vuser_end=0
 [Replayed Actions]
 vuser_init=1
-SignUp=1
+Itinerary=1
 vuser_end=1
 [Interpreters]
 vuser_init=cci
-SignUp=cci
+Itinerary=cci
 vuser_end=cci
 [TransactionsOrder]
-Order="UC03_SignUp__*delimiter*__MainWelcomePage__*delimiter*__ClickSignUp__*delimiter*__FillingFieldsInSignUp__*delimiter*__ClickContinueInSignUp__*delimiter*__SignOff"
+Order="UC02_DeleteABooking__*delimiter*__MainWelcomePage__*delimiter*__LogIn__*delimiter*__ClickItinerary__*delimiter*__CanselReservation__*delimiter*__SignOff__*delimiter*__UC06_Itinerary__*delimiter*__SignOff"
 [StateManagement]
 LastReplayStatus=1
 [ActiveReplay]
 LastReplayedRunName=result1
 ActiveRunName=result1
 [Transactions]
-UC03_SignUp=
+UC02_DeleteABooking=
 MainWelcomePage=
-ClickSignUp=
-FillingFieldsInSignUp=
-ClickContinueInSignUp=
+LogIn=
+ClickItinerary=
+CanselReservation=
 SignOff=
+UC06_Itinerary=

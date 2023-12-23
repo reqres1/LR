@@ -55,8 +55,8 @@ Order="UC05_SearchTicket__*delimiter*__MainWelcomePage__*delimiter*__LogIn__*del
 [StateManagement]
 LastReplayStatus=1
 [ActiveReplay]
-LastReplayedRunName=
-ActiveRunName=
+LastReplayedRunName=result1
+ActiveRunName=result1
 [Transactions]
 UC05_SearchTicket=
 MainWelcomePage=
